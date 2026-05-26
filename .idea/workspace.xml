@@ -1,7 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="645ce851-d7a5-4169-9f4d-e9270b1c5efa" name="Changes" comment="enviando product service" />
+    <list default="true" id="645ce851-d7a5-4169-9f4d-e9270b1c5efa" name="Changes" comment="enviando product service">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Order-Service/src/main/java/br/edu/infnet/order/OrderApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Order-Service/src/main/java/br/edu/infnet/order/OrderApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Order-Service/src/main/java/br/edu/infnet/order/integration/payment/client/PaymentClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/Order-Service/src/main/java/br/edu/infnet/order/integration/payment/client/PaymentClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Order-Service/src/main/java/br/edu/infnet/order/integration/product/client/ProductClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/Order-Service/src/main/java/br/edu/infnet/order/integration/product/client/ProductClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Order-Service/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Order-Service/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Payment-Service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Payment-Service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Payment-Service/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Payment-Service/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Product-Service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Product-Service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Product-Service/src/main/java/br/edu/infnet/product/domain/model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/Product-Service/src/main/java/br/edu/infnet/product/domain/model/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Product-Service/src/main/java/br/edu/infnet/product/repository/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Product-Service/src/main/java/br/edu/infnet/product/repository/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Product-Service/src/main/java/br/edu/infnet/product/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Product-Service/src/main/java/br/edu/infnet/product/service/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Product-Service/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Product-Service/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Product-Service/target/classes/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Product-Service/target/classes/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Product-Service/target/classes/br/edu/infnet/product/domain/model/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/Product-Service/target/classes/br/edu/infnet/product/domain/model/Product.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Product-Service/target/classes/br/edu/infnet/product/repository/ProductRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/Product-Service/target/classes/br/edu/infnet/product/repository/ProductRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Product-Service/target/classes/br/edu/infnet/product/service/ProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/Product-Service/target/classes/br/edu/infnet/product/service/ProductService.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,39 +35,39 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "EduardoFrancisc"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;EduardoFrancisc&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/jrBroz/Assessment_PB.git",
-    "accountId": "797414aa-92de-4d18-b9ec-2730334671d2"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/jrBroz/Assessment_PB.git&quot;,
+    &quot;accountId&quot;: &quot;797414aa-92de-4d18-b9ec-2730334671d2&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 7,
-  "fromUser": false
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7,
+  &quot;fromUser&quot;: false
+}</component>
   <component name="ProjectId" id="3E0eluf4iNVBQk2bZAzO3ByUB5d" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/duudu/Desktop/Assessment_PB"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/duudu/Desktop/Assessment_PB&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>

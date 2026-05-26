@@ -1,36 +1,29 @@
 package br.edu.infnet.product.domain.model;
 
 import br.edu.infnet.product.domain.enums.Platform;
-import org.springframework.data.elasticsearch.annotations.Document;
-
+import jakarta.persistence.*;
 import lombok.Data;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.elasticsearch.annotations.Field;
-import org.springframework.data.elasticsearch.annotations.FieldType;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Data
-@Document(indexName = "products")
+@Entity
+@Table(name = "payments")
 public class Product {
     @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
-
-    @Field(type = FieldType.Text)
+    @Column(nullable = false)
     private String title;
-
-    @Field(type = FieldType.Text)
+    @Column(nullable = false)
     private String description;
-
-    @Field(type = FieldType.Double)
+    @Column(nullable = false)
     private BigDecimal price;
-
-    @Field(type = FieldType.Keyword) //Keyword para buscas exatas no Elasticsearch
+    @Column(nullable = false)
     private Platform platform;
-
-    @Field(type = FieldType.Integer)
+    @Column(nullable = false)
     private Integer stockQuantity;
-
+    @Column(nullable = false)
     private LocalDateTime releaseDate;
 }

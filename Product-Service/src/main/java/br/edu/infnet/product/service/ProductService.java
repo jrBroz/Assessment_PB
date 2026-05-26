@@ -7,9 +7,7 @@ import br.edu.infnet.product.exception.ProductNotFoundException;
 import br.edu.infnet.product.exception.StockQuantityException;
 import br.edu.infnet.product.integration.order.OrderItemDTO;
 import br.edu.infnet.product.repository.ProductRepository;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.MethodArgumentNotValidException;
 
 import java.util.List;
 import java.util.stream.StreamSupport;
@@ -24,7 +22,7 @@ public class ProductService {
 
     public ProductResponse create(CreateProductRequest request) {
         Product product = new Product();
-        product.setTitle(request.title()); // Mapeando 'name' do DTO para 'title' da Entity
+        product.setTitle(request.title());
         product.setDescription(request.description());
         product.setPrice(request.price());
         product.setPlatform(request.platform());
