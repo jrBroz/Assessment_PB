@@ -15,11 +15,13 @@ spring:
       ddl-auto: update
     defer-datasource-initialization: true
 server:
-  port: 8083
-eureka.client.serviceUrl.defaultZone=http://localhost:8761/eureka/
-logging:
-  level:
-    org.hibernate: OFF
-    org.springframework.orm.jpa: OFF
-    com.zaxxer.hikari: OFF
-    org.springframework.jdbc: OFF
+  port: 0
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${random.value}
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
