@@ -30,3 +30,21 @@ integration:
     base-url: http://localhost:8082
   payment:
     base-url: http://localhost:8083
+
+# ==========================================
+# CONFIGURAÇÃO DE OBSERVABILIDADE (ACTUATOR + PROMETHEUS)
+# ==========================================
+management:
+  endpoints:
+    web:
+      exposure:
+        # Por padrão, apenas 'health' fica exposto.
+        include: "health,prometheus"
+  endpoint:
+    health:
+      # Opcional: Mostra detalhes do banco, disco, etc.
+      show-details: always
+  metrics:
+    tags:
+      # Cria uma tag global com o nome do serviço. 
+      application: ${spring.application.name} 
