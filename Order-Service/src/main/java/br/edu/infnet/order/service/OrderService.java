@@ -6,10 +6,10 @@ import br.edu.infnet.order.domain.model.OrderItem;
 import br.edu.infnet.order.dto.CreateOrderRequest;
 import br.edu.infnet.order.dto.OrderItemDTO;
 import br.edu.infnet.order.dto.OrderResponse;
-import br.edu.infnet.order.integration.payment.client.PaymentClient;
-import br.edu.infnet.order.integration.payment.dto.PaymentRequest;
 import br.edu.infnet.order.integration.product.client.ProductClient;
 import br.edu.infnet.order.integration.product.dto.ProductResponse;
+import br.edu.infnet.order.messaging.event.PedidoCriadoEvent;
+import br.edu.infnet.order.messaging.producer.OrderEventPublisher;
 import br.edu.infnet.order.repository.OrderRepository;
 import br.edu.infnet.order.exception.OrderNotFoundException;
 import org.springframework.stereotype.Service;
@@ -24,19 +24,20 @@ import java.util.UUID;
 public class OrderService {
     private final OrderRepository orderRepository;
     private final ProductClient  productClient;
-    private final PaymentClient paymentClient;
+    private final OrderEventPublisher orderEventPublisher;
 
     public OrderService(
             OrderRepository orderRepository,
-            ProductClient productClient, PaymentClient paymentClient) {
+            ProductClient productClient, OrderEventPublisher orderEventPublisher) {
         this.orderRepository = orderRepository;
         this.productClient = productClient;
-        this.paymentClient = paymentClient;
+        this.orderEventPublisher = orderEventPublisher;
     }
 
     public OrderResponse create(CreateOrderRequest request) {
         Order o = new Order();
         o.setCustomerName(request.getCustomerName());
+        o.setPaymentMethod(request.getPaymentMethod());
 
         List<OrderItem> items = new ArrayList<>();
         BigDecimal total = BigDecimal.ZERO;
@@ -61,17 +62,24 @@ public class OrderService {
         o.setOrderStatus(OrderStatus.PENDING);
         o.setTotalAmount(total);
 
-        //Retira os itens do stock
+        //Retira os itens do stock (validação síncrona "tudo ou nada")
         productClient.reduceProductQuantityStock(request.getItems());
 
-        //pagamento
-        paymentClient.create(new PaymentRequest(
+        // Persiste o pedido como PENDING para obter o ID gerado.
+        orderRepository.save(o);
+
+        // COMUNICAÇÃO ASSÍNCRONA: publica o evento de domínio PedidoCriado.
+        // O Payment-Service consome esse evento e processa o pagamento de forma
+        // desacoplada. Se o Payment estiver indisponível, a mensagem aguarda na
+        // fila e o pedido não é bloqueado. Quando o pagamento for processado, o
+        // Payment publica PagamentoProcessado, consumido aqui para atualizar o status.
+        orderEventPublisher.publishPedidoCriado(new PedidoCriadoEvent(
+                UUID.randomUUID(),
                 o.getId(),
+                o.getCustomerName(),
                 o.getTotalAmount(),
                 o.getPaymentMethod()
         ));
-
-        orderRepository.save(o);
 
         return toResponse(o);
     }

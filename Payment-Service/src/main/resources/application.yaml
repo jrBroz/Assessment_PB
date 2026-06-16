@@ -1,6 +1,23 @@
 spring:
   application:
     name: payment-service
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    listener:
+      simple:
+        acknowledge-mode: auto
+        # Após esgotar as tentativas, a mensagem vai para a Dead Letter Queue
+        # em vez de voltar para a fila original em loop infinito.
+        default-requeue-rejected: false
+        retry:
+          enabled: true
+          max-attempts: 3
+          initial-interval: 2000ms
+          multiplier: 2.0
+          max-interval: 10000ms
   datasource:
     url: jdbc:h2:mem:paymentdb
     driver-class-name: org.h2.Driver

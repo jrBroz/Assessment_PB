@@ -1,0 +1,29 @@
+# Broker de mensageria compartilhado pelos microsserviços (Order e Payment).
+# Sobe o RabbitMQ com a interface de gerenciamento (Management UI).
+#
+# Como usar:
+#   docker compose up -d
+#
+# Acessos:
+#   - AMQP (aplicações):     localhost:5672
+#   - Management UI (browser): http://localhost:15672   (login: guest / guest)
+services:
+  rabbitmq:
+    image: rabbitmq:3.13-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"     # porta AMQP usada pelos serviços Spring
+      - "15672:15672"   # console web de administração
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    volumes:
+      - rabbitmq-data:/var/lib/rabbitmq
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  rabbitmq-data:
